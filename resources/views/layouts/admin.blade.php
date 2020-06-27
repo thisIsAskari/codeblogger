@@ -15,9 +15,12 @@
 {{--    <!-- Custom style CSS -->--}}
 {{--    <link rel="stylesheet" href="assets/css/custom.css">--}}
 {{--    <link rel='shortcut icon' type='image/x-icon' href='assets/img/favicon.ico' />--}}
-
-    <link href="{{asset('css/app.css')}}" rel="stylesheet"/>
     <link href="{{asset('css/libs.css')}}" rel="stylesheet"/>
+    <link href="{{asset('css/app.css')}}" rel="stylesheet"/>
+
+
+
+
 </head>
 
 <body>
@@ -408,10 +411,7 @@
 
         <!-- Main Content -->
         <div class="main-content">
-            <section class="section">
                 @yield('content')
-            </section>
-
         </div>
 
 
@@ -429,6 +429,7 @@
 
 
 <script src="{{asset('js/libs.js')}}"></script>
+
 </body>
 
 

@@ -15,15 +15,25 @@ elixir(function(mix) {
     mix.sass('app.scss')
 
     .styles([
-     'app.min.css',
+        'app.min.css',
+        'summernote/summernote-bs4.css',
+        'jquery-selectric/selectric.css',
+        'bootstrap-tagsinput/dist/bootstrap-tagsinput.css',
+        'style.css',
         'components.css',
-        'style.css'
+        'custom.css'
     ],'./public/css/libs.css')
+
 
     .scripts([
         'app.min.js',
-        'custom.js',
+        'summernote/summernote-bs4.js',
+        'upload-preview/jquery.uploadPreview.min.js',
+        'jquery-selectric/jquery.selectric.min.js',
+        'bootstrap-tagsinput/bootstrap-tagsinput.min.js',
+        'page/create-post.js',
         'scripts.js',
+        'custom.js',
         'page/advance-table.js',
         'page/auth-register.js',
         'page/calendar.js',
@@ -35,7 +45,6 @@ elixir(function(mix) {
         'page/chat.js',
         'page/ckeditor.js',
         'page/contact.js',
-        'page/create-post.js',
         'page/datatables.js',
         'page/editable-table.js',
         'page/form-wizard.js',
@@ -49,7 +58,7 @@ elixir(function(mix) {
         'page/gmaps-multiple-marker.js',
         'page/gmaps-route.js',
         'page/gmaps-simple.js',
-        'page/index,js',
+        'page/index.js',
         'page/index2.js',
         'page/ion-icons.js',
         'page/light-gallery.js',
@@ -59,7 +68,7 @@ elixir(function(mix) {
         'page/posts.js',
         'page/sparkline.js',
         'page/sweetalert.js',
-        'page/toastr,js',
+        'page/toastr.js',
         'page/vector-map.js',
         'page/widget-chart.js',
         'page/widget-data.js'

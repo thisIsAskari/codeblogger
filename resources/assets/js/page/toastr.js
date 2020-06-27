@@ -63,3 +63,4 @@ $("#toastr-8").click(function() {
     position: 'topCenter' 
   });
 });
+
