@@ -28,6 +28,7 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Email</th>
+                                <th scope="col">Photo</th>
                                 <th scope="col">Role</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Created at</th>
@@ -43,6 +44,9 @@
                                         <th scope="row">{{$user->id}}</th>
                                         <td>{{$user->name}}</td>
                                         <td>{{$user->email}}</td>
+                                        <td>
+                                            <img alt="image" src="{{$user->photo_id}}" width="35">
+                                        </td>
                                         <td>{{$user->role->name}}</td>
                                         <td>
                                             @if($user->is_active == 1)

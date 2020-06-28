@@ -56,14 +56,14 @@
 
 
                             <div class="form-group row mb-4">
-                                {!! Form::label(null,'Thumbnail',['class'=>'col-sm-3 col-form-label']) !!}
+                                {!! Form::label(null,'Photo',['class'=>'col-sm-3 col-form-label']) !!}
                                 {{--                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Thumbnail</label>--}}
                                 <div class="col-sm-12 col-md-7">
                                     <div id="image-preview" class="image-preview">
-                                        {!! Form::label('image-upload','Choose File',['id'=>'image-label']) !!}
+                                        {!! Form::label('photo_id','Choose File',['id'=>'image-label']) !!}
                                         {{--                                        <label for="image-upload" id="image-label">Choose File</label>--}}
 
-                                        {!! Form::file('file',['id'=>'image-upload']) !!}
+                                        {!! Form::file('photo_id',['id'=>'image-upload']) !!}
                                         {{--                                        <input type="file" name="image" id="image-upload" />--}}
                                     </div>
                                 </div>
