@@ -33,6 +33,8 @@
                                 <th scope="col">Status</th>
                                 <th scope="col">Created at</th>
                                 <th scope="col">Updated at</th>
+                                <th scope="col">Edit</th>
+                                <th scope="col">Delete</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -45,9 +47,27 @@
                                         <td>{{$user->name}}</td>
                                         <td>{{$user->email}}</td>
                                         <td>
-                                            <img alt="image" src="{{$user->photo_id}}" width="35">
+                                            @if(empty($user->photo_id))
+                                                {{'No Photo'}}
+                                            @else
+{{--                                                <img alt="image" src="{{$user->photo->file}}" width="35">--}}
+
+                                                <img alt="image" src="{{$user->photo->file}}" class="rounded-circle" width="35" height="35"
+                                                     data-toggle="tooltip" title="{{$user->name}}">
+                                            @endif
                                         </td>
-                                        <td>{{$user->role->name}}</td>
+                                        <td>
+                                            @if($user->role->name == "Administrator")
+                                                <div class="badge badge-dark">{{$user->role->name}}</div>
+
+                                            @elseif($user->role->name == "Subscriber")
+                                                <div class="badge badge-info">{{$user->role->name}}</div>
+
+                                            @elseif($user->role->name == "Author")
+                                                <div class="badge badge-light">{{$user->role->name}}</div>
+
+                                            @endif
+                                        </td>
                                         <td>
                                             @if($user->is_active == 1)
 
@@ -60,6 +80,16 @@
                                         </td>
                                         <td>{{$user->created_at->diffForHumans()}}</td>
                                         <td>{{$user->updated_at->diffForHumans()}}</td>
+
+                                        <td>
+                                            <a href="{{route('admin.user.edit',$user->id)}}" class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit"><i
+                                                        class="fas fa-pencil-alt"></i></a>
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete"
+                                               data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?"
+                                               data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
+                                        </td>
                                     </tr>
                                 @endforeach
                             @endif

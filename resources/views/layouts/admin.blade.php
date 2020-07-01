@@ -202,8 +202,8 @@
             <aside id="sidebar-wrapper">
                 <div class="sidebar-brand">
                     <a href="index.html">
-                        <img alt="image" src="assets/img/logo.png" class="header-logo" />
-                        <span class="logo-name">Ality</span>
+                        <img alt="image" src="" class="header-logo" />
+                        <span class="logo-name">Code Blogger</span>
                     </a>
                 </div>
                 <ul class="sidebar-menu">
