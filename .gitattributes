@@ -1,3 +1,6 @@
 * text=auto
 *.css linguist-vendored
 *.less linguist-vendored
+node_modules filter=lfs diff=lfs merge=lfs -text
+vendor filter=lfs diff=lfs merge=lfs -text
+node_modules/gulp-sass/node_modules/node-sass/build/Release/libsass.lib filter=lfs diff=lfs merge=lfs -text

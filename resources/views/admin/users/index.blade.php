@@ -4,6 +4,7 @@
 
 
 
+
         <section class="section">
             <div class="section-header">
                 <div class="section-header-back">
@@ -15,8 +16,45 @@
                     <div class="breadcrumb-item"><a href="#">Users</a></div>
                     <div class="breadcrumb-item">View All Users</div>
                 </div>
+
+
+
+
             </div>
             <div class="section-body">
+                @if(Session::has('delete_user'))
+                    <div class="alert alert-success alert-dismissible show fade">
+                        <div class="alert-body">
+                            <button class="close" data-dismiss="alert">
+                                <span>&times;</span>
+                            </button>
+                            {{session('delete_user')}}
+                        </div>
+                    </div>
+
+                    <p ></p>
+
+                @elseif(Session::has('create_user'))
+                    <div class="alert alert-success alert-dismissible show fade">
+                        <div class="alert-body">
+                            <button class="close" data-dismiss="alert">
+                                <span>&times;</span>
+                            </button>
+                            {{session('create_user')}}
+                        </div>
+                    </div>
+
+                @elseif(Session::has('edit_user'))
+                    <div class="alert alert-success alert-dismissible show fade">
+                        <div class="alert-body">
+                            <button class="close" data-dismiss="alert">
+                                <span>&times;</span>
+                            </button>
+                            {{session('edit_user')}}
+                        </div>
+                    </div>
+
+                @endif
                 <div class="card">
                     <div class="card-header">
                         <h4>Users</h4>
@@ -85,10 +123,18 @@
                                             <a href="{{route('admin.user.edit',$user->id)}}" class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit"><i
                                                         class="fas fa-pencil-alt"></i></a>
                                         </td>
+
+
                                         <td>
-                                            <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete"
-                                               data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?"
-                                               data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
+                                            {!! Form::open(['method'=>'DELETE','action'=>['AdminUserController@destroy', $user->id]]) !!}
+
+                                            {{csrf_field()}}
+
+                                            {!! Form::button('<i class="fas fa-trash"></i>',['type'=>'submit','class'=>'btn btn-danger btn-action']) !!}
+{{--                                            <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete"--}}
+{{--                                               data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?"--}}
+{{--                                               data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>--}}
+                                            {!! Form::close() !!}
                                         </td>
                                     </tr>
                                 @endforeach

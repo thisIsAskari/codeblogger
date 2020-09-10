@@ -16,6 +16,7 @@ elixir(function(mix) {
 
     .styles([
         'app.min.css',
+        'izitoast/css/iziToast.min.css',
         'summernote/summernote-bs4.css',
         'jquery-selectric/selectric.css',
         'bootstrap-tagsinput/dist/bootstrap-tagsinput.css',
@@ -27,6 +28,8 @@ elixir(function(mix) {
 
     .scripts([
         'app.min.js',
+        'izitoast/js/iziToast.min.js',
+        'page/toastr.js',
         'summernote/summernote-bs4.js',
         'upload-preview/jquery.uploadPreview.min.js',
         'jquery-selectric/jquery.selectric.min.js',
@@ -68,7 +71,6 @@ elixir(function(mix) {
         'page/posts.js',
         'page/sparkline.js',
         'page/sweetalert.js',
-        'page/toastr.js',
         'page/vector-map.js',
         'page/widget-chart.js',
         'page/widget-data.js'

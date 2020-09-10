@@ -10,6 +10,7 @@ use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Session;
 
 class AdminUserController extends Controller
 {
@@ -59,6 +60,8 @@ class AdminUserController extends Controller
         $input['password'] = bcrypt($request->password);
 
         User::create($input);
+
+        Session::flash('create_user','New User Created Successfully');
 
         return redirect('/admin/user');
     }
@@ -124,7 +127,7 @@ class AdminUserController extends Controller
 
 
         $user->update($input);
-
+        Session::flash('edit_user','User Edit Successfully');
         return redirect('/admin/user');
     }
 
@@ -136,6 +139,10 @@ class AdminUserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+        unlink(public_path() . $user->photo->file);
+        $user->delete();
+        Session::flash('delete_user','User Deleted Successfully');
+        return redirect('/admin/user');
     }
 }

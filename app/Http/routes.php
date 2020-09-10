@@ -34,10 +34,19 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
-Route::resource('/admin/user','AdminUserController');
 
 
-Route::get('/admin/index',function(){
 
-    return view('admin.index');
+Route::group(['middleware'=>'admin'],function (){
+
+    Route::resource('/admin/user','AdminUserController');
+
+    Route::resource('/admin/post','AdminPostController');
+
+
+    Route::get('/admin', function(){
+
+        return view('admin/index');
+    });
+
 });

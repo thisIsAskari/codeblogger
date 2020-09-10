@@ -6,6 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+
     <title>Code Blogger Admin Panel</title>
     <!-- General CSS Files -->
 {{--    <link rel="stylesheet" href="assets/css/app.min.css">--}}
@@ -17,7 +18,6 @@
 {{--    <link rel='shortcut icon' type='image/x-icon' href='assets/img/favicon.ico' />--}}
     <link href="{{asset('css/libs.css')}}" rel="stylesheet"/>
     <link href="{{asset('css/app.css')}}" rel="stylesheet"/>
-
 
 
 
@@ -177,10 +177,10 @@
                 </li>
                 <li class="dropdown"><a href="#" data-toggle="dropdown"
                                         class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                        <img alt="image" src="assets/img/user.png" class="user-img-radious-style">
+                        <img alt="image" src="{{ Auth::user()->photo->file }}" class="user-img-radious-style">
                         <span class="d-sm-none d-lg-inline-block"></span></a>
                     <div class="dropdown-menu dropdown-menu-right">
-                        <div class="dropdown-title">Hello Sarah Smith</div>
+                        <div class="dropdown-title">Hello {{ Auth::user()->name }}</div>
                         <a href="profile.html" class="dropdown-item has-icon">
                             <i class="far fa-user"></i> Profile
                         </a>
@@ -191,7 +191,7 @@
                             <i class="fas fa-cog"></i> Settings
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="auth-login.html" class="dropdown-item has-icon text-danger">
+                        <a href="{{ url('/logout') }}" class="dropdown-item has-icon text-danger">
                             <i class="fas fa-sign-out-alt"></i> Logout
                         </a>
                     </div>
@@ -209,12 +209,25 @@
                 <ul class="sidebar-menu">
                     <li class="menu-header">Main</li>
                     <li class="dropdown active">
-                        <a href="#" class="nav-link has-dropdown"><i class="fas fa-users"></i><span>Users</span></a>
+                        <a href="/admin"><i class="fas fa-home"></i><span>Dashboard</span></a>
+                    </li>
+                    <li class="dropdown active">
+                        <a href="" class="nav-link has-dropdown"><i class="fas fa-users"></i><span>Users</span></a>
                         <ul class="dropdown-menu">
                             <li class="active"><a class="nav-link" href="{{route('admin.user.index')}}">View All Users</a></li>
                             <li><a class="nav-link" href="{{route('admin.user.create')}}">Create User</a></li>
                         </ul>
                     </li>
+
+                    <li class="dropdown active">
+                        <a href="" class="nav-link has-dropdown"><i class="fas fa-edit"></i><span>Posts</span></a>
+                        <ul class="dropdown-menu">
+                            <li class="active"><a class="nav-link" href="{{route('admin.post.index')}}">View All Posts</a></li>
+                            <li><a class="nav-link" href="{{route('admin.post.create')}}">Create Post</a></li>
+                        </ul>
+                    </li>
+
+
 
                 </ul>
             </aside>

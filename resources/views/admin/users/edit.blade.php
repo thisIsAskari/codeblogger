@@ -105,11 +105,20 @@
 
                             <div class="card-footer">
 
-                                {!! Form::submit('Create User',['class'=>'btn btn-primary']) !!}
+                                {!! Form::submit('Edit User',['class'=>'btn btn-primary col-sm-2','style'=>'float: left;']) !!}
                                 {{--                            <button class="btn btn-primary">Submit</button>--}}
                             </div>
 
                             {!! Form::close() !!}
+
+{{--                            Delete user--}}
+
+                            {!! Form::open(['method'=>'DELETE','action'=>['AdminUserController@destroy', $user->id]]) !!}
+
+                            {!! Form::button('Delete User',['type'=>'submit','class'=>'btn btn-danger btn-action col-sm-2','style'=>'float: right;margin-right: 2%;margin-top: -2%;']) !!}
+
+
+
                         </div>
 
 
