@@ -177,7 +177,7 @@
                 </li>
                 <li class="dropdown"><a href="#" data-toggle="dropdown"
                                         class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                        <img alt="image" src="{{ Auth::user()->photo->file }}" class="user-img-radious-style">
+                        <img alt="image" src="{{ Auth::user()->photo ? Auth::user()->photo->file : 'http://placehold.it/180x180' }}" class="user-img-radious-style">
                         <span class="d-sm-none d-lg-inline-block"></span></a>
                     <div class="dropdown-menu dropdown-menu-right">
                         <div class="dropdown-title">Hello {{ Auth::user()->name }}</div>
@@ -224,6 +224,13 @@
                         <ul class="dropdown-menu">
                             <li class="active"><a class="nav-link" href="{{route('admin.post.index')}}">View All Posts</a></li>
                             <li><a class="nav-link" href="{{route('admin.post.create')}}">Create Post</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown active">
+                        <a href="" class="nav-link has-dropdown"><i class="fas fa-list-ul"></i><span>Categories</span></a>
+                        <ul class="dropdown-menu">
+                            <li class="active"><a class="nav-link" href="{{route('admin.category.index')}}">View All Categories</a></li>
                         </ul>
                     </li>
 

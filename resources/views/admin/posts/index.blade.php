@@ -112,6 +112,7 @@
                                             <th>Title</th>
                                             <th>Category</th>
                                             <th>Created At</th>
+                                            <th>Updated At</th>
                                             <th>Views</th>
                                             <th>Status</th>
                                             <th>Edit</th>
@@ -135,27 +136,69 @@
 
                                                 <td>
                                                     <a href="#">
-                                                        <img height="40" src="{{$post->user->photo->file ? $post->user->photo->file : 'http://www.placeholder.it/100x100'}}"
-                                                             class="rounded-circle" width="35" data-toggle="title" title=""> {{$post->user->name}}
+
+                                                        @if(!empty($post->user))
+                                                            @if(!empty($post->user->photo))
+
+                                                                <img height="36" src="{{$post->user->photo->file}}"
+                                                                     class="rounded-circle" width="35" data-toggle="title" title="{{$post->user->name}}"> {{$post->user->name}}
+                                                             @else
+                                                                <img alt="image" src="{{'http://www.placehold.it/100x100'}}" class="rounded-circle" width="35" height="35"
+                                                                     data-toggle="tooltip" title="{{$post->user->name}}">{{$post->user->name}}
+                                                            @endif
+
+                                                        @else
+
+                                                            <img alt="image" src="{{'http://www.placehold.it/100x100'}}" class="rounded-circle" width="35" height="35"
+                                                                 data-toggle="tooltip" title="User not found">   {{$post->user ? $post->user->name : 'User not found'}}
+                                                        @endif
+
+
 
                                                     </a>
                                                 </td>
                                                 <td>{{$post->title}}
-                                                    <div class="table-links">
+                                                    <div class="table-links" ">
                                                         <a href="#">View</a>
                                                         <div class="bullet"></div>
-                                                        <a href="#">Edit</a>
+                                                        <a href="{{route('admin.post.edit',$post->id)}}">Edit</a>
                                                         <div class="bullet"></div>
-                                                        <a href="#" class="text-danger">Trash</a>
+
+                                                        <div style="display: inline-block">
+                                                            {{--  <a href="" class="text-danger">Trash</a>--}}
+
+                                                            {!! Form::open(['method'=>'DELETE','action'=>['AdminPostController@destroy',$post->id]]) !!}
+
+                                                            {!! Form::submit('Trash',['type'=>'submit','class'=>'text-danger','style'=>'border: none; background-color: white;']) !!}
+
+                                                            {!! Form::close() !!}
+                                                        </div>
+
+
+
+
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <a href="#">{{$post->category ? $post->category->name : 'Uncategorized'}}</a>
+                                                    <a href="">{{$post->category ? $post->category->name : 'Uncategorized'}}</a>
                                                 </td>
                                                 <td>{{$post->created_at->diffForhumans()}}</td>
+                                                <td>{{$post->updated_at->diffForhumans()}}</td>
                                                 <td>3,587</td>
                                                 <td>
                                                     <div class="badge badge-success">Publish</div>
+                                                </td>
+
+                                                <td>
+                                                    <a href="{{route('admin.post.edit',$post->id)}}" class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit"><i
+                                                                class="fas fa-pencil-alt"></i></a>
+                                                </td>
+
+                                                <td>
+                                                    {!! Form::open(['method'=>'DELETE','action'=>['AdminPostController@destroy', $post->id]]) !!}
+                                                    {{csrf_field()}}
+                                                    {!! Form::button('<i class="fas fa-trash"></i>',['type'=>'submit','class'=>'btn btn-danger btn-action']) !!}
+                                                    {!! Form::close() !!}
                                                 </td>
 {{--                                                <td>--}}
 {{--                                                    <a href="#">{{$post->category}}</a>--}}
@@ -282,6 +325,7 @@
                                                     <label for="checkbox-5" class="custom-control-label">&nbsp;</label>
                                                 </div>
                                             </td>
+                                            <td>2</td>
                                             <td>
                                                 <a href="#">
                                                     <img alt="image" src="assets/img/users/user-4.png" class="rounded-circle" width="35"
@@ -315,6 +359,7 @@
                                                     <label for="checkbox-1" class="custom-control-label">&nbsp;</label>
                                                 </div>
                                             </td>
+                                            <td>2</td>
                                             <td>
                                                 <a href="#">
                                                     <img alt="image" src="assets/img/users/user-5.png" class="rounded-circle" width="35"

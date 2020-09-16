@@ -25,7 +25,7 @@
 
                             {!! Form::open(['method'=>'POST','action'=>'AdminUserController@store','files'=>true]) !!}
 
-                            {{csrf_field()}}
+
 
                             <div class="form-group row">
                                     {!! Form::label('inputUser','Username',['class'=>'col-sm-3 col-form-label']) !!}

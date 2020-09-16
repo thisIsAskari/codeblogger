@@ -28,7 +28,6 @@
 
                             {!! Form::model($user,['method'=>'PATCH','action'=>['AdminUserController@update',$user->id],'files'=>true]) !!}
 
-                            {{csrf_field()}}
                             <img alt="image" src="{{$user->photo ? $user->photo->file : 'http://placehold.it/180x180'}}" class="mr-3 user-img-radious-style user-list-img" width="180">
 
                             <br><br>
@@ -117,7 +116,7 @@
 
                             {!! Form::button('Delete User',['type'=>'submit','class'=>'btn btn-danger btn-action col-sm-2','style'=>'float: right;margin-right: 2%;margin-top: -2%;']) !!}
 
-
+                            {!! Form::close() !!}
 
                         </div>
 

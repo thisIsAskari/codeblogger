@@ -296,6 +296,7 @@ class ComposerStaticInit4d59b945dbb39a8ac1eba5246aa7c69a
         'CreatePhotosTable' => __DIR__ . '/../..' . '/database/migrations/2020_06_27_202730_create_photos_table.php',
         'CreatePostsTable' => __DIR__ . '/../..' . '/database/migrations/2020_09_07_175116_create_posts_table.php',
         'CreateRolesTable' => __DIR__ . '/../..' . '/database/migrations/2020_06_17_124757_create_roles_table.php',
+        'CreateSessionsTable' => __DIR__ . '/../..' . '/database/migrations/2020_09_11_194929_create_sessions_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',

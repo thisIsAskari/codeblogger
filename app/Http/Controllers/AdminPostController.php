@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Http\Requests\PostCreateRequest;
+use App\Http\Requests\PostEditRequest;
 use App\Photo;
 use App\Post;
 use Illuminate\Http\Request;
@@ -83,7 +84,9 @@ class AdminPostController extends Controller
      */
     public function edit($id)
     {
-        return view("admin.posts.edit");
+        $post = Post::findOrFail($id);
+        $categories = Category::lists('name','id')->all();
+        return view("admin.posts.edit",compact('post','categories'));
     }
 
     /**
@@ -93,9 +96,36 @@ class AdminPostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PostEditRequest $request, $id)
     {
-        //
+        $input = $request->all();
+
+        $post = Post::find($id);
+        if($file = $request->file('photo_id'))
+        {
+
+
+            if(!empty($post->photo->file))
+            {
+                unlink(public_path() . $post->photo->file);
+                $post->photo->delete();
+            }
+            
+            $name = time() . $file->getClientOriginalName();
+            $file->move('images',$name);
+            $photo = Photo::create(['file'=>$name]);
+            $input['photo_id'] = $photo->id;
+        }
+
+        //sirf wohi user update kr sakta hy jis ki wo post hy
+//      Auth::user()->posts()->whereId($id)->first()->update($input);
+
+        //sare users update kr sakte hn
+        $post->update($input);
+
+        Session::flash('edit_post','Post Edit Successfully');
+        return redirect('admin/post');
+
     }
 
     /**
@@ -106,6 +136,11 @@ class AdminPostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        unlink(public_path(). $post->photo->file);
+        $post->photo->delete();
+        $post->delete();
+        Session::flash('delete_post','Post Deleted Successfully');
+        return redirect('admin/post');
     }
 }

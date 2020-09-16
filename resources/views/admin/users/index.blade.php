@@ -32,7 +32,7 @@
                         </div>
                     </div>
 
-                    <p ></p>
+
 
                 @elseif(Session::has('create_user'))
                     <div class="alert alert-success alert-dismissible show fade">
@@ -85,7 +85,7 @@
                                         <td>{{$user->name}}</td>
                                         <td>{{$user->email}}</td>
                                         <td>
-                                            @if(empty($user->photo_id))
+                                            @if(empty($user->photo->file))
                                                 {{'No Photo'}}
                                             @else
 {{--                                                <img alt="image" src="{{$user->photo->file}}" width="35">--}}

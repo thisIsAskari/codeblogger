@@ -34,7 +34,9 @@ elixir(function(mix) {
         'upload-preview/jquery.uploadPreview.min.js',
         'jquery-selectric/jquery.selectric.min.js',
         'bootstrap-tagsinput/bootstrap-tagsinput.min.js',
+        'sweetalert/sweetalert.min.js',
         'page/create-post.js',
+        'page/sweetalert.js',
         'scripts.js',
         'custom.js',
         'page/advance-table.js',
@@ -70,7 +72,6 @@ elixir(function(mix) {
         'page/portfolio.js',
         'page/posts.js',
         'page/sparkline.js',
-        'page/sweetalert.js',
         'page/vector-map.js',
         'page/widget-chart.js',
         'page/widget-data.js'

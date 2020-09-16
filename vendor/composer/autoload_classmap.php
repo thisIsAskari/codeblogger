@@ -11,6 +11,7 @@ return array(
     'CreatePhotosTable' => $baseDir . '/database/migrations/2020_06_27_202730_create_photos_table.php',
     'CreatePostsTable' => $baseDir . '/database/migrations/2020_09_07_175116_create_posts_table.php',
     'CreateRolesTable' => $baseDir . '/database/migrations/2020_06_17_124757_create_roles_table.php',
+    'CreateSessionsTable' => $baseDir . '/database/migrations/2020_09_11_194929_create_sessions_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',

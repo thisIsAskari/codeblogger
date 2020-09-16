@@ -25,8 +25,8 @@
 
                             @include('includes.form_error')
 
-                            {!! Form::open(['method'=>'post','action'=>'AdminPostController@store','files'=>true]) !!}
-                            {{csrf_field()}}
+                            {!! Form::open(['method'=>'POST','action'=>'AdminPostController@store','files'=>true]) !!}
+
 
                             <div class="card-header">
                                 <h4>Write Your Post</h4>
