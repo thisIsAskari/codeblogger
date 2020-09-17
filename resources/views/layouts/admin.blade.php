@@ -234,7 +234,13 @@
                         </ul>
                     </li>
 
-
+                    <li class="dropdown active">
+                        <a href="" class="nav-link has-dropdown"><i class="fas fa-file-image"></i><span>Medias</span></a>
+                        <ul class="dropdown-menu">
+                            <li class="active"><a class="nav-link" href="{{route('admin.media.index')}}">View All Medias</a></li>
+                            <li class="active"><a class="nav-link" href="{{route('admin.media.create')}}">Upload Media</a></li>
+                        </ul>
+                    </li>
 
                 </ul>
             </aside>

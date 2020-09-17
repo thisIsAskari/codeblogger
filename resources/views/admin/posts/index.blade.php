@@ -14,7 +14,6 @@
                     </div>
                 </div>
 
-                <p ></p>
 
             @elseif(Session::has('create_post'))
                 <div class="alert alert-success alert-dismissible show fade">
@@ -107,7 +106,7 @@
                                                     <label for="checkbox-all" class="custom-control-label">&nbsp;</label>
                                                 </div>
                                             </th>
-                                            <th>Id</th>
+                                            <th>#</th>
                                             <th>Author</th>
                                             <th>Title</th>
                                             <th>Category</th>
@@ -196,15 +195,11 @@
 
                                                 <td>
                                                     {!! Form::open(['method'=>'DELETE','action'=>['AdminPostController@destroy', $post->id]]) !!}
-                                                    {{csrf_field()}}
+
                                                     {!! Form::button('<i class="fas fa-trash"></i>',['type'=>'submit','class'=>'btn btn-danger btn-action']) !!}
                                                     {!! Form::close() !!}
                                                 </td>
-{{--                                                <td>--}}
-{{--                                                    <a href="#">{{$post->category}}</a>--}}
-{{--                                                </td>--}}
-
-
+                                
                                             </tr>
                                             @endforeach
                                         @endif

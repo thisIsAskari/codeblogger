@@ -60,7 +60,11 @@
                         <h4>Users</h4>
                     </div>
                     <div class="card-body">
-                        <table class="table table-hover">
+
+                        <div class="table-responsive">
+                            <table class="table table-striped" id="table-1">
+
+
                             <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -141,6 +145,7 @@
                             @endif
                             </tbody>
                         </table>
+                        </div>
                     </div>
                 </div>
             </div>
