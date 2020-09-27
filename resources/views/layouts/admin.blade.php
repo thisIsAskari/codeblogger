@@ -16,7 +16,7 @@
 {{--    <!-- Custom style CSS -->--}}
 {{--    <link rel="stylesheet" href="assets/css/custom.css">--}}
 {{--    <link rel='shortcut icon' type='image/x-icon' href='assets/img/favicon.ico' />--}}
-    <link href="{{asset('css/libs.css')}}" rel="stylesheet"/>
+    <link href="{{asset('backend/css/libs.css')}}" rel="stylesheet"/>
     <link href="{{asset('css/app.css')}}" rel="stylesheet"/>
 
 
@@ -227,12 +227,12 @@
                         </ul>
                     </li>
 
-                    <li class="dropdown active">
-                        <a href="" class="nav-link has-dropdown"><i class="fas fa-list-ul"></i><span>Categories</span></a>
-                        <ul class="dropdown-menu">
-                            <li class="active"><a class="nav-link" href="{{route('admin.category.index')}}">View All Categories</a></li>
-                        </ul>
+
+                    <li>
+                        <a class="nav-link" href="{{route('admin.category.index')}}"><i class="fas fa-list-ul"></i><span>Categories</span></a>
                     </li>
+
+
 
                     <li class="dropdown active">
                         <a href="" class="nav-link has-dropdown"><i class="fas fa-file-image"></i><span>Medias</span></a>
@@ -240,6 +240,10 @@
                             <li class="active"><a class="nav-link" href="{{route('admin.media.index')}}">View All Medias</a></li>
                             <li class="active"><a class="nav-link" href="{{route('admin.media.create')}}">Upload Media</a></li>
                         </ul>
+                    </li>
+
+                    <li>
+                        <a class="nav-link" href="{{route('admin.comments.index')}}"><i class="fas fa-comments"></i><span>Comments</span></a>
                     </li>
 
                 </ul>
@@ -268,7 +272,7 @@
 </div>
 
 
-<script src="{{asset('js/libs.js')}}"></script>
+<script src="{{asset('backend/js/libs.js')}}"></script>
 
 </body>
 

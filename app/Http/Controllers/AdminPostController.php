@@ -143,4 +143,13 @@ class AdminPostController extends Controller
         Session::flash('delete_post','Post Deleted Successfully');
         return redirect('admin/post');
     }
+
+    Public function post($id)
+    {
+        $post = Post::findOrFail($id);
+        $categories = Category::all();
+        return view('post',compact('post','categories'));
+
+
+    }
 }
